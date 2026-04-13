@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About BIOCESS — Our story, brand philosophy, and commitment to sustainability. K-Beauty from Seoul, crafted with science and nature." />
+  <title>About Brand | BIOCESS Seoul</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8Z8BWN2E7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M8Z8BWN2E7');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* About-specific styles */
+    .about-hero {
+      min-height: 85vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--color-primary-dark);
+    }
+    .about-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/spring-nature.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.22;
+    }
+    .about-hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      padding: 10rem 0 6rem;
+    }
+
+    /* Story section */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .story-image {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+    }
+    .story-image img {
+      width: 100%;
+      height: 620px;
+      object-fit: cover;
+    }
+    .story-image-overlay {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      right: 2rem;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+    .story-quote {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--color-primary-dark);
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+    .story-quote-author {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+    }
+
+    /* Values */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .value-card {
+      padding: 2.5rem 2rem;
+      border-radius: var(--radius-md);
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      transition: var(--transition);
+    }
+    .value-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-primary-light);
+    }
+    .value-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-md);
+      background: rgba(127,212,175,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary-dark);
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .value-title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--color-text);
+      margin-bottom: 0.6rem;
+    }
+    .value-desc {
+      font-size: 0.88rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+    }
+
+    /* Sustainability */
+    .sustain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .sustain-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding: 1.5rem;
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      transition: var(--transition);
+    }
+    .sustain-item:hover {
+      border-color: var(--color-primary-light);
+      transform: translateY(-2px);
+    }
+    .sustain-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(45,95,78,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary-dark);
+      flex-shrink: 0;
+      font-size: 0.95rem;
+    }
+    .sustain-title {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 0.3rem;
+    }
+    .sustain-desc {
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    /* Team / Logo showcase */
+    .brand-showcase {
+      background: linear-gradient(135deg, #f0f8f4, #e4f2eb);
+      border-radius: var(--radius-lg);
+      padding: 4rem;
+      text-align: center;
+    }
+    .brand-logo-large {
+      max-width: 320px;
+      margin: 0 auto 2rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; }
+      .story-image img { height: 400px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .sustain-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .brand-showcase { padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header id="site-header" class="light">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div>
+          <div class="nav-logo-text">BIOCESS</div>
+          <div class="nav-logo-sub">Seoul · K-Beauty</div>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About Brand</a>
+        <a href="product.html">The Product</a>
+        <a href="science.html">Science</a>
+        <a href="contact.html">Contact</a>
+        <a href="product.html" class="btn-nav">Discover Now</a>
+      </nav>
+      <button class="nav-hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" aria-label="Mobile navigation">
+    <button class="nav-mobile-close" aria-label="Close menu">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Brand</a>
+    <a href="product.html">The Product</a>
+    <a href="science.html">Science</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+
+  <!-- ABOUT HERO -->
+  <section class="about-hero" aria-label="About BIOCESS">
+    <div class="about-hero-bg"></div>
+    <div class="container">
+      <div class="about-hero-content fade-up">
+        <p class="eyebrow" style="color:var(--color-primary-light);">About BIOCESS</p>
+        <h1 style="color:white;max-width:700px;margin-bottom:1rem;">
+          Where <em style="color:var(--color-primary-light);">Science</em> Meets<br>the Soul of Nature
+        </h1>
+        <div class="divider" style="background:var(--color-primary-light);"></div>
+        <p style="color:rgba(255,255,255,0.75);font-size:1.05rem;max-width:560px;margin-top:1.2rem;">
+          From Seoul's laboratories to your skincare routine — BIOCESS is built on a singular belief that real, lasting beauty comes from understanding skin at a molecular level.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- OUR STORY -->
+  <section id="our-story" style="padding:7rem 0;background:var(--color-white);" aria-label="Our Story">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-image fade-in">
+          <img src="images/model-smile.jpg" alt="BIOCESS brand philosophy — natural, radiant beauty" loading="lazy" />
+          <div class="story-image-overlay">
+            <div class="story-quote">"The best skincare is the kind that works from the inside out — and science finally makes that possible."</div>
+            <div class="story-quote-author">— BIOCESS Founding Principle</div>
+          </div>
+        </div>
+
+        <div class="fade-up delay-1">
+          <p class="eyebrow">Our Story</p>
+          <h2 style="margin-bottom:1.5rem;">Born in Seoul.<br>Built on <em>Science.</em></h2>
+          <div class="divider"></div>
+
+          <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.9;margin-top:1.5rem;">
+            BIOCESS was founded by a team of Korean cosmetic scientists and beauty innovators who shared a frustration: the gap between what skincare science could achieve and what most products actually delivered.
+          </p>
+          <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.9;margin-top:1rem;">
+            For years, the team researched hyaluronic acid at the molecular level — not just as an ingredient, but as a biological system. They discovered that targeting multiple skin layers simultaneously, with precisely calibrated molecular weights, produced dramatically superior results compared to conventional single-weight formulas.
+          </p>
+          <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.9;margin-top:1rem;">
+            The result was Spring Subun Ampoule — named after the Korean word for moisture (수분, 水分) and inspired by the renewal of spring. A product that doesn't just promise hydration but delivers it at every layer of your skin, every single day.
+          </p>
+
+          <div style="display:flex;gap:2rem;margin-top:2.5rem;flex-wrap:wrap;">
+            <div>
+              <div style="font-family:var(--font-serif);font-size:2rem;color:var(--color-primary-dark);">Seoul</div>
+              <div style="font-size:0.7rem;color:var(--color-text-light);letter-spacing:0.1em;text-transform:uppercase;">Founded &amp; Formulated</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-serif);font-size:2rem;color:var(--color-primary-dark);">2+ Years</div>
+              <div style="font-size:0.7rem;color:var(--color-text-light);letter-spacing:0.1em;text-transform:uppercase;">R&amp;D Development</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-serif);font-size:2rem;color:var(--color-primary-dark);">5 Types</div>
+              <div style="font-size:0.7rem;color:var(--color-text-light);letter-spacing:0.1em;text-transform:uppercase;">Hyaluronic Acid</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BRAND PHILOSOPHY -->
+  <section id="philosophy" style="padding:7rem 0;background:var(--color-bg-alt);" aria-label="Brand Philosophy">
+    <div class="container">
+      <div class="text-center">
+        <p class="eyebrow fade-up">What We Believe</p>
+        <h2 class="fade-up delay-1">Brand <em>Philosophy</em></h2>
+        <div class="divider divider-center fade-up delay-1"></div>
+        <p class="section-desc section-desc-center fade-up delay-2">
+          Three core values guide every decision we make — from formula development to packaging design to how we communicate with our customers.
+        </p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card fade-up">
+          <div class="value-icon"><i class="fas fa-microscope"></i></div>
+          <div class="value-title">Science First</div>
+          <div class="value-desc">
+            Every ingredient in our formula has a clearly defined, scientifically validated function. We don't add anything for aesthetics alone. INCI names and mechanism of action are available for every component, and we welcome scrutiny.
+          </div>
+        </div>
+
+        <div class="value-card fade-up delay-1">
+          <div class="value-icon"><i class="fas fa-eye"></i></div>
+          <div class="value-title">Radical Transparency</div>
+          <div class="value-desc">
+            We publish our full ingredient list, explain what each ingredient does, and are upfront about what our product cannot do. We believe informed customers make the best skincare choices — and better choices lead to better skin outcomes.
+          </div>
+        </div>
+
+        <div class="value-card fade-up delay-2">
+          <div class="value-icon"><i class="fas fa-heart"></i></div>
+          <div class="value-title">Skin for Every Person</div>
+          <div class="value-desc">
+            Hydration is universal. Whether your skin is oily, dry, sensitive, or combination — every skin type benefits from multi-layer moisture. We formulate inclusively, with a gentle profile that welcomes all skin types, tones, and ages.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BRAND VISUAL SHOWCASE -->
+  <section style="padding:5rem 0;background:var(--color-white);" aria-label="Brand Identity">
+    <div class="container">
+      <div class="brand-showcase fade-up">
+        <img src="images/logo-biocess.jpg" alt="BIOCESS Seoul Brand Logo" class="brand-logo-large" loading="lazy" />
+        <h3 style="font-family:var(--font-serif);font-size:1.8rem;color:var(--color-primary-dark);margin-bottom:0.8rem;">BIOCESS · Seoul</h3>
+        <p style="font-size:0.88rem;color:var(--color-text-light);max-width:500px;margin:0 auto 2rem;line-height:1.8;">
+          Our logo unites the letters B and C with a molecular structure and a leaf — representing the intersection of biotechnology and nature that defines our brand identity. Based in Seoul, we carry the legacy of Korean innovation to the world.
+        </p>
+        <div style="display:flex;gap:0.7rem;justify-content:center;flex-wrap:wrap;">
+          <span class="badge"><i class="fas fa-map-marker-alt"></i> Seoul, Korea</span>
+          <span class="badge"><i class="fas fa-dna"></i> Bio-Technology</span>
+          <span class="badge"><i class="fas fa-leaf"></i> Nature-Inspired</span>
+          <span class="badge"><i class="fas fa-globe-asia"></i> K-Beauty</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SUSTAINABILITY -->
+  <section id="sustainability" style="padding:7rem 0;background:var(--color-bg-alt);" aria-label="Sustainability Commitment">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;">
+        <div class="fade-up">
+          <p class="eyebrow">Our Commitment</p>
+          <h2 style="margin-bottom:1.5rem;">Sustainability &amp;<br><em>Responsibility</em></h2>
+          <div class="divider"></div>
+          <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.9;margin-top:1.5rem;">
+            We believe that the best skincare should not come at the cost of the planet. BIOCESS is committed to minimizing our environmental footprint at every step — from sourcing ingredients to the packaging that reaches your hands.
+          </p>
+          <p style="font-size:0.95rem;color:var(--color-text-light);line-height:1.9;margin-top:1rem;">
+            Our green glass bottle is not just beautiful — it's infinitely recyclable. We use minimum packaging materials, sourced sustainably, and are actively working toward a fully compostable outer box for future production runs.
+          </p>
+          <a href="contact.html" class="btn btn-outline" style="margin-top:2rem;display:inline-flex;">
+            <i class="fas fa-envelope"></i> Ask About Our Practices
+          </a>
+        </div>
+
+        <div class="sustain-grid fade-up delay-1">
+          <div class="sustain-item">
+            <div class="sustain-icon"><i class="fas fa-recycle"></i></div>
+            <div>
+              <div class="sustain-title">Recyclable Green Glass</div>
+              <div class="sustain-desc">Our signature emerald glass bottles are 100% recyclable and designed for long-term use — refill programs planned for 2026.</div>
+            </div>
+          </div>
+          <div class="sustain-item">
+            <div class="sustain-icon"><i class="fas fa-ban"></i></div>
+            <div>
+              <div class="sustain-title">Clean Formula</div>
+              <div class="sustain-desc">No parabens, no artificial colorants, no microplastics. Every ingredient passes our internal safety and environmental review.</div>
+            </div>
+          </div>
+          <div class="sustain-item">
+            <div class="sustain-icon"><i class="fas fa-seedling"></i></div>
+            <div>
+              <div class="sustain-title">Responsibly Sourced</div>
+              <div class="sustain-desc">All plant-derived ingredients — including centella asiatica — are sourced from certified sustainable farms.</div>
+            </div>
+          </div>
+          <div class="sustain-item">
+            <div class="sustain-icon"><i class="fas fa-box-open"></i></div>
+            <div>
+              <div class="sustain-title">Minimal Packaging</div>
+              <div class="sustain-desc">We use only what is necessary — FSC-certified paper for outer boxes, with zero single-use plastic inserts.</div>
+            </div>
+          </div>
+          <div class="sustain-item">
+            <div class="sustain-icon"><i class="fas fa-heart"></i></div>
+            <div>
+              <div class="sustain-title">Cruelty-Free</div>
+              <div class="sustain-desc">BIOCESS products are never tested on animals. We adhere to cruelty-free standards throughout our entire supply chain.</div>
+            </div>
+          </div>
+          <div class="sustain-item">
+            <div class="sustain-icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+              <div class="sustain-title">Carbon Reduction Plan</div>
+              <div class="sustain-desc">We are mapping our full supply chain carbon footprint with a goal to achieve net-zero operations by 2030.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section style="padding:6rem 0;background:linear-gradient(135deg,var(--color-primary-dark) 0%,#1a7a52 100%);">
+    <div class="container text-center">
+      <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--color-primary-light);margin-bottom:0.5rem;" class="fade-up">
+        Join the Journey
+      </p>
+      <h2 style="color:white;margin-bottom:1rem;" class="fade-up delay-1">
+        Be Part of the<br><em style="color:var(--color-primary-light);">BIOCESS Story</em>
+      </h2>
+      <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;max-width:500px;margin:0 auto 2.5rem;" class="fade-up delay-2">
+        Follow us on Instagram for daily skin tips, behind-the-scenes from our Seoul lab, and your exclusive launch notification.
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;" class="fade-up delay-3">
+        <a href="https://www.instagram.com/biocess" target="_blank" rel="noopener" class="btn btn-white">
+          <i class="fab fa-instagram"></i> @biocess on Instagram
+        </a>
+        <a href="contact.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.5);color:white;">
+          <i class="fas fa-envelope"></i> Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">BIOCESS</div>
+          <div class="footer-brand-sub">Seoul · K-Beauty</div>
+          <p class="footer-desc">Advanced Korean skincare rooted in science and inspired by nature.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/biocess" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Amazon"><i class="fab fa-amazon"></i></a>
+            <a href="contact.html" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">About</div>
+          <ul class="footer-links">
+            <li><a href="#our-story">Our Story</a></li>
+            <li><a href="#philosophy">Brand Philosophy</a></li>
+            <li><a href="#sustainability">Sustainability</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Product</div>
+          <ul class="footer-links">
+            <li><a href="product.html">Spring Subun Ampoule</a></li>
+            <li><a href="science.html">The Science</a></li>
+            <li><a href="index.html">Home</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Connect</div>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="https://www.instagram.com/biocess" target="_blank">@biocess</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2025 BIOCESS Seoul. All rights reserved.</p>
+        <p class="footer-copyright">Crafted in Seoul, Korea 🇰🇷</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

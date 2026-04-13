@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact BIOCESS — Get in touch with our team, request information, or sign up for early launch access for Spring Subun Ampoule." />
+  <title>Contact | BIOCESS Seoul</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8Z8BWN2E7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M8Z8BWN2E7');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .contact-hero {
+      padding: 10rem 0 5rem;
+      background: linear-gradient(160deg, #f0f8f4 0%, #e4f2eb 60%, #d8eddf 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(127,212,175,0.2) 0%, transparent 70%);
+    }
+    .contact-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,182,163,0.12) 0%, transparent 70%);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* Contact info */
+    .contact-info-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-border);
+    }
+    .contact-info-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .contact-info-item:last-child { border-bottom: none; }
+    .contact-info-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: rgba(127,212,175,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary-dark);
+      flex-shrink: 0;
+    }
+    .contact-info-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+      margin-bottom: 0.2rem;
+    }
+    .contact-info-value {
+      font-size: 0.9rem;
+      color: var(--color-text);
+      font-weight: 500;
+    }
+    .contact-info-value a {
+      color: var(--color-primary-dark);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* Social Cards */
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+    .social-card {
+      flex: 1;
+      padding: 1.2rem 1rem;
+      border-radius: var(--radius-md);
+      background: var(--color-bg-alt);
+      text-align: center;
+      border: 1px solid var(--color-border);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .social-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+    .social-card i { font-size: 1.3rem; margin-bottom: 0.4rem; display: block; }
+    .social-card span { font-size: 0.7rem; font-weight: 600; color: var(--color-text-light); display: block; }
+
+    /* Form */
+    .contact-form-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-border);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* Request type buttons */
+    .request-types {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+    .request-type-btn {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius-full);
+      border: 1.5px solid var(--color-border);
+      background: var(--color-bg);
+      color: var(--color-text-light);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .request-type-btn.active,
+    .request-type-btn:hover {
+      border-color: var(--color-primary-dark);
+      background: rgba(45,95,78,0.08);
+      color: var(--color-primary-dark);
+    }
+
+    /* Early access section */
+    .early-access-banner {
+      background: linear-gradient(135deg, var(--color-primary-dark), #1a7a52);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .early-access-banner::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+    }
+
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .contact-form-card { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header id="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div>
+          <div class="nav-logo-text">BIOCESS</div>
+          <div class="nav-logo-sub">Seoul · K-Beauty</div>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Brand</a>
+        <a href="product.html">The Product</a>
+        <a href="science.html">Science</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="#early-access" class="btn-nav">Early Access</a>
+      </nav>
+      <button class="nav-hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" aria-label="Mobile navigation">
+    <button class="nav-mobile-close" aria-label="Close menu">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Brand</a>
+    <a href="product.html">The Product</a>
+    <a href="science.html">Science</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+
+  <!-- HERO -->
+  <section class="contact-hero" aria-label="Contact Hero">
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="fade-up">
+        <p class="eyebrow">Get in Touch</p>
+        <h1 style="max-width:600px;margin-bottom:1rem;">Let's <em>Talk</em> Beauty &amp; Science</h1>
+        <div class="divider"></div>
+        <p style="font-size:1.05rem;color:var(--color-text-light);max-width:520px;margin-top:1.2rem;">
+          Questions about the product, wholesale inquiries, press &amp; media, or just want to connect with our Seoul team — we'd love to hear from you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACT MAIN -->
+  <section style="padding:6rem 0;background:var(--color-bg-alt);" aria-label="Contact Form and Info">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Contact Info Side -->
+        <div class="fade-up">
+          <div class="contact-info-card">
+            <h3 style="font-family:var(--font-serif);font-size:1.5rem;margin-bottom:0.3rem;">Contact Information</h3>
+            <p style="font-size:0.82rem;color:var(--color-text-light);margin-bottom:1.5rem;">Our Seoul team typically responds within 24 business hours.</p>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <div class="contact-info-label">General Inquiries</div>
+                <div class="contact-info-value"><a href="mailto:jihoon@shewha.co.kr">jihoon@shewha.co.kr</a></div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-shopping-bag"></i></div>
+              <div>
+                <div class="contact-info-label">Wholesale &amp; B2B</div>
+                <div class="contact-info-value"><a href="mailto:jihoon@shewha.co.kr">jihoon@shewha.co.kr</a></div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-camera"></i></div>
+              <div>
+                <div class="contact-info-label">Press &amp; Media</div>
+                <div class="contact-info-value"><a href="mailto:jihoon@shewha.co.kr">jihoon@shewha.co.kr</a></div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <div class="contact-info-label">Headquarters</div>
+                <div class="contact-info-value">Seoul, South Korea 🇰🇷</div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <div class="contact-info-label">Business Hours</div>
+                <div class="contact-info-value">Mon – Fri, 9AM – 6PM KST</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div style="margin-top:1.5rem;">
+            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-text-light);margin-bottom:0.8rem;">Connect With Us</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/biocess" target="_blank" rel="noopener" class="social-card">
+                <i class="fab fa-instagram" style="color:#E1306C;"></i>
+                <span>@biocess</span>
+              </a>
+              <a href="#" class="social-card">
+                <i class="fab fa-amazon" style="color:#FF9900;"></i>
+                <span>Amazon</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- FAQ quick links -->
+          <div style="margin-top:1.5rem;padding:1.5rem;background:var(--color-white);border-radius:var(--radius-md);border:1px solid var(--color-border);">
+            <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--color-text-light);margin-bottom:1rem;">Quick Answers</p>
+            <ul style="display:flex;flex-direction:column;gap:0.5rem;">
+              <li><a href="index.html#faq" style="font-size:0.82rem;color:var(--color-primary-dark);display:flex;align-items:center;gap:0.4rem;"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> When is the Amazon launch?</a></li>
+              <li><a href="product.html#how-to-use" style="font-size:0.82rem;color:var(--color-primary-dark);display:flex;align-items:center;gap:0.4rem;"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> How do I use the ampoule?</a></li>
+              <li><a href="product.html#ingredients-full" style="font-size:0.82rem;color:var(--color-primary-dark);display:flex;align-items:center;gap:0.4rem;"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> Full ingredient list</a></li>
+              <li><a href="science.html" style="font-size:0.82rem;color:var(--color-primary-dark);display:flex;align-items:center;gap:0.4rem;"><i class="fas fa-chevron-right" style="font-size:0.6rem;"></i> How does 5-layer HA work?</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contact Form Side -->
+        <div class="fade-up delay-1">
+          <div class="contact-form-card">
+            <h3 style="font-family:var(--font-serif);font-size:1.8rem;margin-bottom:0.5rem;">Send Us a Message</h3>
+            <p style="font-size:0.82rem;color:var(--color-text-light);margin-bottom:2rem;">Choose your inquiry type and we'll route it to the right team.</p>
+
+            <!-- Request type selector -->
+            <div style="margin-bottom:1.5rem;">
+              <label style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text);display:block;margin-bottom:0.5rem;">Inquiry Type</label>
+              <div class="request-types" id="request-types">
+                <button type="button" class="request-type-btn active" data-value="General Inquiry">General</button>
+                <button type="button" class="request-type-btn" data-value="Product Question">Product</button>
+                <button type="button" class="request-type-btn" data-value="Early Access Request">Early Access</button>
+                <button type="button" class="request-type-btn" data-value="Wholesale / B2B">Wholesale</button>
+                <button type="button" class="request-type-btn" data-value="Press / Media">Press</button>
+                <button type="button" class="request-type-btn" data-value="Collaboration">Collaboration</button>
+              </div>
+            </div>
+
+            <form id="contact-form" novalidate>
+              <input type="hidden" name="subject" id="subject-input" value="General Inquiry" />
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-name">Name *</label>
+                  <input type="text" id="contact-name" name="name" placeholder="Your full name" required />
+                </div>
+                <div class="form-group">
+                  <label for="contact-email">Email *</label>
+                  <input type="email" id="contact-email" name="email" placeholder="your@email.com" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">Message *</label>
+                <textarea id="contact-message" name="message" placeholder="Tell us what you'd like to know..." rows="6" required></textarea>
+              </div>
+
+              <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1.5rem;">
+                <input type="checkbox" id="privacy-consent" required style="width:auto;accent-color:var(--color-primary-dark);" />
+                <label for="privacy-consent" style="font-size:0.78rem;color:var(--color-text-light);font-weight:400;text-transform:none;letter-spacing:0;">
+                  I agree to BIOCESS storing my contact details for response purposes. <a href="#" style="color:var(--color-primary-dark);">Privacy Policy</a>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- EARLY ACCESS SIGNUP -->
+  <section id="early-access" style="padding:6rem 0;background:var(--color-white);" aria-label="Early Access Signup">
+    <div class="container">
+      <div class="early-access-banner">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;flex-wrap:wrap;">
+          <div class="fade-up" style="position:relative;z-index:1;">
+            <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--color-primary-light);margin-bottom:0.6rem;">
+              <i class="fas fa-rocket"></i> Amazon Launch — June 2025
+            </p>
+            <h2 style="color:white;font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:0.8rem;">
+              Get Exclusive <em style="color:var(--color-primary-light);">Early Access</em>
+            </h2>
+            <p style="color:rgba(255,255,255,0.75);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem;">
+              Be among the first to purchase Spring Subun Ampoule on Amazon. Early access subscribers receive:
+            </p>
+            <ul style="display:flex;flex-direction:column;gap:0.5rem;">
+              <li style="display:flex;gap:0.7rem;align-items:center;font-size:0.88rem;color:rgba(255,255,255,0.85);">
+                <i class="fas fa-check-circle" style="color:var(--color-primary-light);flex-shrink:0;"></i>
+                Priority notification before public launch
+              </li>
+              <li style="display:flex;gap:0.7rem;align-items:center;font-size:0.88rem;color:rgba(255,255,255,0.85);">
+                <i class="fas fa-check-circle" style="color:var(--color-primary-light);flex-shrink:0;"></i>
+                Exclusive launch-day discount code
+              </li>
+              <li style="display:flex;gap:0.7rem;align-items:center;font-size:0.88rem;color:rgba(255,255,255,0.85);">
+                <i class="fas fa-check-circle" style="color:var(--color-primary-light);flex-shrink:0;"></i>
+                Monthly skin tips from our Seoul lab
+              </li>
+              <li style="display:flex;gap:0.7rem;align-items:center;font-size:0.88rem;color:rgba(255,255,255,0.85);">
+                <i class="fas fa-check-circle" style="color:var(--color-primary-light);flex-shrink:0;"></i>
+                First access to new product launches
+              </li>
+            </ul>
+          </div>
+
+          <div class="fade-up delay-1" style="position:relative;z-index:1;">
+            <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border-radius:var(--radius-lg);padding:2.5rem;border:1px solid rgba(255,255,255,0.15);">
+              <h4 style="font-family:var(--font-serif);font-size:1.4rem;color:white;margin-bottom:1.5rem;">Sign Up for Early Access</h4>
+              <form id="newsletter-form" novalidate style="display:flex;flex-direction:column;gap:1rem;">
+                <input type="text" name="name" style="padding:0.85rem 1.1rem;font-family:var(--font-sans);font-size:0.9rem;border:1.5px solid rgba(255,255,255,0.3);border-radius:var(--radius-sm);background:rgba(255,255,255,0.12);color:white;outline:none;" placeholder="Your name" />
+                <input type="email" name="email" required style="padding:0.85rem 1.1rem;font-family:var(--font-sans);font-size:0.9rem;border:1.5px solid rgba(255,255,255,0.3);border-radius:var(--radius-sm);background:rgba(255,255,255,0.12);color:white;outline:none;" placeholder="Email address *" />
+                <button type="submit" class="btn btn-white" style="justify-content:center;">
+                  <i class="fas fa-bell"></i> Get Early Access
+                </button>
+              </form>
+              <p style="font-size:0.72rem;color:rgba(255,255,255,0.5);text-align:center;margin-top:1rem;">
+                No spam. Unsubscribe anytime. 🔒 Your privacy is protected.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ teaser -->
+  <section style="padding:5rem 0;background:var(--color-bg-alt);">
+    <div class="container text-center">
+      <p class="eyebrow fade-up">Before You Write</p>
+      <h2 class="fade-up delay-1" style="margin-bottom:1rem;">Check Our <em>FAQ</em></h2>
+      <p class="section-desc section-desc-center fade-up delay-2" style="margin-bottom:2rem;">
+        Your question might already be answered in our comprehensive FAQ section.
+      </p>
+      <a href="index.html#faq" class="btn btn-outline fade-up delay-3">
+        <i class="fas fa-question-circle"></i> View All FAQs
+      </a>
+    </div>
+  </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">BIOCESS</div>
+          <div class="footer-brand-sub">Seoul · K-Beauty</div>
+          <p class="footer-desc">Advanced Korean skincare rooted in science and inspired by nature.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/biocess" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Amazon"><i class="fab fa-amazon"></i></a>
+            <a href="contact.html" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="mailto:jihoon@shewha.co.kr">jihoon@shewha.co.kr</a></li>
+            <li><a href="mailto:jihoon@shewha.co.kr">Wholesale Inquiries</a></li>
+            <li><a href="mailto:jihoon@shewha.co.kr">Press &amp; Media</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">The Product</a></li>
+            <li><a href="science.html">Science</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Connect</div>
+          <ul class="footer-links">
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="https://www.instagram.com/biocess" target="_blank" rel="noopener">@biocess</a></li>
+            <li><a href="#early-access">Early Access</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2025 BIOCESS Seoul. All rights reserved.</p>
+        <p class="footer-copyright">Crafted in Seoul, Korea 🇰🇷</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Request type selector
+    const typeButtons = document.querySelectorAll('.request-type-btn');
+    const subjectInput = document.getElementById('subject-input');
+    typeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        typeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (subjectInput) subjectInput.value = btn.getAttribute('data-value');
+      });
+    });
+  </script>
+</body>
+</html>
